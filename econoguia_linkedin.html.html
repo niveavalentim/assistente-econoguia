@@ -1,1 +1,439 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EconoguIA — Projeto</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --border: #21262d;
+      --green: #3fb950;
+      --green-dim: #1a3a22;
+      --blue: #58a6ff;
+      --yellow: #d29922;
+      --text: #e6edf3;
+      --muted: #7d8590;
+      --font: 'Space Grotesk', sans-serif;
+      --mono: 'IBM Plex Mono', monospace;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 72px 24px 48px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--green-dim);
+      border: 1px solid var(--green);
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 3.8rem);
+      font-weight: 700;
+      letter-spacing: -.02em;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span { color: var(--green); }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 560px;
+      margin-bottom: 36px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 48px;
+    }
+
+    .tag {
+      font-family: var(--mono);
+      font-size: 12px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--blue);
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    /* ── TERMINAL ── */
+    .terminal-wrap {
+      max-width: 860px;
+      margin: 0 auto 64px;
+      padding: 0 24px;
+    }
+
+    .terminal {
+      background: #010409;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      font-family: var(--mono);
+      font-size: 14px;
+    }
+
+    .terminal-bar {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dot { width: 12px; height: 12px; border-radius: 50%; }
+    .dot-r { background: #ff5f57; }
+    .dot-y { background: #febc2e; }
+    .dot-g { background: #28c840; }
+
+    .terminal-title {
+      margin-left: 8px;
+      font-size: 12px;
+      color: var(--muted);
+      font-family: var(--mono);
+    }
+
+    .terminal-body { padding: 20px 24px; line-height: 2; }
+
+    .t-header { color: var(--green); font-weight: 500; }
+    .t-dim { color: var(--muted); }
+    .t-prompt { color: var(--blue); }
+    .t-answer { color: var(--text); }
+    .t-warn { color: var(--yellow); }
+    .t-gap { display: block; height: 8px; }
+
+    /* ── STATS ── */
+    .stats {
+      max-width: 860px;
+      margin: 0 auto 64px;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px;
+    }
+
+    .stat-num {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--green);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* ── FEATURES ── */
+    .section {
+      max-width: 860px;
+      margin: 0 auto 64px;
+      padding: 0 24px;
+    }
+
+    .section-title {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .feature-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .feature-icon { font-size: 1.4rem; margin-bottom: 10px; }
+    .feature-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+    .feature-card p { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+    /* ── CONCEPTS ── */
+    .concepts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .concept {
+      font-family: var(--mono);
+      font-size: 12px;
+      background: var(--green-dim);
+      border: 1px solid #2ea043;
+      color: var(--green);
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    /* ── TECH STACK ── */
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .tech {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .tech-dot { width: 8px; height: 8px; border-radius: 50%; }
+    .py { background: #3572A5; }
+    .json { background: var(--yellow); }
+    .git { background: #F05032; }
+
+    /* ── FOOTER ── */
+    footer {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 32px 24px 48px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: gap;
+      gap: 12px;
+    }
+
+    footer p { font-size: 13px; color: var(--muted); }
+    footer strong { color: var(--text); }
+
+    .dio-badge {
+      font-size: 12px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 6px 14px;
+      border-radius: 20px;
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 2rem; }
+      .terminal-body { padding: 16px; font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="badge">🎓 Projeto DIO · Bootcamp IA</div>
+    <h1>Econo<span>guIA</span></h1>
+    <p>Assistente virtual educacional que explica conceitos de economia de forma simples, direta e sem inventar respostas.</p>
+    <div class="tags">
+      <span class="tag">python</span>
+      <span class="tag">chatbot</span>
+      <span class="tag">educação financeira</span>
+      <span class="tag">json</span>
+      <span class="tag">cli</span>
+      <span class="tag">primeiro projeto</span>
+    </div>
+  </section>
+
+  <!-- TERMINAL DEMO -->
+  <div class="terminal-wrap">
+    <div class="terminal">
+      <div class="terminal-bar">
+        <span class="dot dot-r"></span>
+        <span class="dot dot-y"></span>
+        <span class="dot dot-g"></span>
+        <span class="terminal-title">python src/app.py</span>
+      </div>
+      <div class="terminal-body">
+        <div class="t-header">==================================================</div>
+        <div class="t-header">         📊  EconoguIA — Seu guia de economia</div>
+        <div class="t-header">==================================================</div>
+        <div class="t-dim">  Base de conhecimento: 30 conceitos disponíveis</div>
+        <div class="t-dim">  Digite 'ajuda' para ver os comandos disponíveis.</div>
+        <div class="t-header">==================================================</div>
+        <span class="t-gap"></span>
+        <div><span class="t-prompt">💬 Você:</span> o que é inflação?</div>
+        <span class="t-gap"></span>
+        <div class="t-answer">📖 EconoguIA:</div>
+        <div class="t-answer" style="padding-left:16px">Inflação é o aumento generalizado dos preços de bens e serviços ao longo do</div>
+        <div class="t-answer" style="padding-left:16px">tempo, reduzindo o poder de compra da moeda. No Brasil, a inflação é</div>
+        <div class="t-answer" style="padding-left:16px">medida principalmente pelo IPCA.</div>
+        <span class="t-gap"></span>
+        <div><span class="t-prompt">💬 Você:</span> o que é taxa selic?</div>
+        <span class="t-gap"></span>
+        <div class="t-answer">📖 EconoguIA:</div>
+        <div class="t-answer" style="padding-left:16px">A Taxa Selic é a taxa básica de juros da economia brasileira, definida pelo</div>
+        <div class="t-answer" style="padding-left:16px">Copom do Banco Central. Quando a Selic sobe, o crédito fica mais caro e o</div>
+        <div class="t-answer" style="padding-left:16px">consumo tende a cair, reduzindo a inflação.</div>
+        <span class="t-gap"></span>
+        <div><span class="t-prompt">💬 Você:</span> o que é criptomoeda?</div>
+        <span class="t-gap"></span>
+        <div class="t-warn">🤔 EconoguIA:</div>
+        <div class="t-warn" style="padding-left:16px">Desculpe, não encontrei essa informação na minha base de conhecimento.</div>
+        <div class="t-dim" style="padding-left:16px">Tente 'listar' para ver os conceitos disponíveis.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat-card">
+      <div class="stat-num">30+</div>
+      <div class="stat-label">conceitos econômicos na base</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">de acerto nos testes realizados</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">0</div>
+      <div class="stat-label">respostas inventadas — sempre honesto</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">~80</div>
+      <div class="stat-label">linhas de Python</div>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <section class="section">
+    <div class="section-title">funcionalidades</div>
+    <div class="features">
+      <div class="feature-card">
+        <div class="feature-icon">🔍</div>
+        <h3>Busca Inteligente</h3>
+        <p>Identifica o conceito dentro da pergunta do usuário, sem precisar digitar exatamente o termo.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🚫</div>
+        <h3>Sem Alucinação</h3>
+        <p>Quando não sabe, fala que não sabe. Respostas baseadas apenas na base de conhecimento.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📚</div>
+        <h3>Comando Listar</h3>
+        <p>O usuário pode ver todos os conceitos disponíveis antes de fazer sua pergunta.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🛡️</div>
+        <h3>Robusto</h3>
+        <p>Trata interrupções de teclado (Ctrl+C) e entradas vazias sem travar.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONCEITOS -->
+  <section class="section">
+    <div class="section-title">conceitos disponíveis</div>
+    <div class="concepts">
+      <span class="concept">inflação</span>
+      <span class="concept">IPCA</span>
+      <span class="concept">IGP-M</span>
+      <span class="concept">Selic</span>
+      <span class="concept">Copom</span>
+      <span class="concept">PIB</span>
+      <span class="concept">desemprego</span>
+      <span class="concept">PNAD</span>
+      <span class="concept">oferta</span>
+      <span class="concept">demanda</span>
+      <span class="concept">elasticidade</span>
+      <span class="concept">monopólio</span>
+      <span class="concept">oligopólio</span>
+      <span class="concept">Adam Smith</span>
+      <span class="concept">Keynes</span>
+      <span class="concept">Malthus</span>
+      <span class="concept">Friedman</span>
+      <span class="concept">juros</span>
+      <span class="concept">dívida pública</span>
+      <span class="concept">Tesouro Direto</span>
+      <span class="concept">câmbio</span>
+      <span class="concept">balança comercial</span>
+      <span class="concept">recessão</span>
+      <span class="concept">política fiscal</span>
+      <span class="concept">política monetária</span>
+      <span class="concept">Banco Central</span>
+      <span class="concept">microeconomia</span>
+      <span class="concept">macroeconomia</span>
+      <span class="concept">custo de oportunidade</span>
+      <span class="concept">concorrência perfeita</span>
+    </div>
+  </section>
+
+  <!-- TECH -->
+  <section class="section">
+    <div class="section-title">tecnologias</div>
+    <div class="tech-stack">
+      <div class="tech"><span class="tech-dot py"></span> Python 3.10+</div>
+      <div class="tech"><span class="tech-dot json"></span> JSON</div>
+      <div class="tech"><span class="tech-dot git"></span> Git / GitHub</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Criado por <strong>você</strong> · Bootcamp IA na <strong>DIO</strong></p>
+    <span class="dio-badge">🎓 Primeiro projeto com Python</span>
+  </footer>
+
+</body>
+</html>
