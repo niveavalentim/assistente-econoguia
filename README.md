@@ -31,7 +31,7 @@ O **EconoguIA** é um chatbot de linha de comando que responde perguntas sobre c
 ##  Estrutura do Projeto
 
 ```
-econoguia/
+assistente-econoguia/
 ├── data/
 │   └── base_conhecimento.json   # Base com conceitos econômicos
 ├── docs/
@@ -52,7 +52,7 @@ econoguia/
 
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/econoguia.git
+git clone https://github.com/seu-usuario/assistente-econoguia.git
 cd econoguia
 
 # Execute o projeto
