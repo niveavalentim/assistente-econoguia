@@ -2,7 +2,7 @@
 
 ## Sobre o Projeto
 
-O EconoguIA é um assistente virtual desenvolvido como parte do desafio "Construa seu Assistente Virtual com Inteligência Artificial" da Digital Innovation One (DIO).
+O EconoguIA é um assistente virtual desenvolvido como parte do desafio "Construa seu Assistente Virtual com Inteligência Artificial" da DIO.
 
 O projeto foi criado com o objetivo de auxiliar estudantes, profissionais e pessoas interessadas em economia a compreender conceitos econômicos de forma simples, objetiva e confiável.
 
