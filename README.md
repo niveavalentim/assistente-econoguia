@@ -1,300 +1,131 @@
-# EconoguIA - Assistente Virtual de Economia com Inteligência Artificial
+# 📊 EconoguIA
 
-## Sobre o Projeto
+> Assistente virtual educacional para aprender conceitos de economia de forma simples e objetiva.
 
-O EconoguIA é um assistente virtual desenvolvido como parte do desafio "Construa seu Assistente Virtual com Inteligência Artificial" da DIO.
-
-O projeto foi criado com o objetivo de auxiliar estudantes, profissionais e pessoas interessadas em economia a compreender conceitos econômicos de forma simples, objetiva e confiável.
-
-O assistente utiliza uma base de conhecimento própria para responder perguntas relacionadas à economia, evitando respostas inventadas e informando ao usuário quando não possui informações suficientes para responder determinada questão.
+Projeto desenvolvido como desafio final do bootcamp de IA da [DIO](https://www.dio.me/). Foi meu primeiro projeto com Python e IA aplicada — criado para tornar a economia mais acessível para quem está começando.
 
 ---
 
-## Problema
+## O que é?
 
-A economia está presente no cotidiano das pessoas, mas muitos conceitos importantes podem ser difíceis de compreender, especialmente para quem está iniciando os estudos na área.
+O **EconoguIA** é um chatbot de linha de comando que responde perguntas sobre conceitos econômicos. Ele consulta uma base de conhecimento local e retorna explicações simples e diretas — sem inventar respostas.
 
-Termos como inflação, PIB, taxa Selic, desemprego e elasticidade aparecem frequentemente em notícias, análises econômicas e conteúdos acadêmicos, mas nem sempre são apresentados de forma clara e acessível.
-
----
-
-## Solução
-
-O EconoguIA foi desenvolvido para atuar como um guia de aprendizagem em economia.
-
-Por meio de uma base de conhecimento estruturada, o assistente é capaz de:
-
-- Identificar conceitos econômicos presentes na pergunta do usuário;
-- Buscar informações em sua base de conhecimento;
-- Retornar respostas objetivas e compreensíveis;
-- Informar quando não possui conhecimento suficiente para responder;
-- Apoiar estudantes e interessados no aprendizado de economia.
+**Exemplos do que você pode perguntar:**
+- *"O que é inflação?"*
+- *"Explique o PIB"*
+- *"Quem foi Adam Smith?"*
+- *"O que é Taxa Selic?"*
 
 ---
 
-## Objetivos
+##  Funcionalidades
 
-- Facilitar o aprendizado de conceitos econômicos.
-- Demonstrar a utilização de Inteligência Artificial em aplicações educacionais.
-- Aplicar conceitos de organização de conhecimento.
-- Desenvolver uma solução simples, funcional e escalável.
-
----
-
-## Público-Alvo
-
-O EconoguIA foi pensado para atender:
-
-- Estudantes de Economia;
-- Estudantes do Ensino Médio;
-- Universitários;
-- Pessoas interessadas em educação financeira;
-- Usuários que desejam aprender conceitos econômicos básicos.
+-  Respostas para **30+ conceitos econômicos**
+-  Comando `listar` para ver todos os conceitos disponíveis
+-  Busca por correspondência exata e parcial
+-  Informa quando não encontra a resposta (sem inventar)
+-  Tratamento de interrupção do teclado (Ctrl+C)
 
 ---
 
-## Funcionalidades
+##  Estrutura do Projeto
 
-- Consulta de conceitos econômicos.
-- Respostas baseadas em uma base de conhecimento própria.
-- Tratamento de perguntas desconhecidas.
-- Respostas simples e objetivas.
-- Estrutura facilmente expansível para novos temas.
-
----
-
-## Base de Conhecimento
-
-A base de conhecimento contém conceitos econômicos fundamentais, incluindo:
-
-- Inflação
-- IPCA
-- Taxa Selic
-- PIB
-- Desemprego
-- Oferta e Demanda
-- Elasticidade
-- Concorrência Perfeita
-- Monopólio
-- Oligopólio
-- Adam Smith
-- John Maynard Keynes
-- Thomas Malthus
-
-Novos conceitos podem ser adicionados facilmente ao arquivo de conhecimento do projeto.
-
----
-
-## Estrutura do Projeto
-
-```text
+```
 econoguia/
-│
-├── README.md
-│
 ├── data/
-│   └── base_conhecimento.json
-│
+│   └── base_conhecimento.json   # Base com conceitos econômicos
 ├── docs/
-│   ├── documentacao.md
-│   ├── metricas.md
-│   └── pitch.md
-│
-└── src/
-    └── app.py
+│   ├── documentacao.md          # Documentação do agente
+│   ├── prompts.md               # Prompt principal
+│   ├── metricas.md              # Avaliação e métricas de teste
+│   └── pitch.md                 # Pitch do projeto
+├── src/
+│   └── app.py                   # Código principal
+└── README.md
 ```
 
 ---
 
-## Tecnologias Utilizadas
+##  Como rodar
 
-- Python 3
-- JSON
-- Git
-- GitHub
-
----
-
-## Funcionamento do Assistente
-
-O EconoguIA utiliza uma lógica simples baseada em busca por palavras-chave.
-
-Quando o usuário realiza uma pergunta:
-
-1. O sistema recebe a entrada do usuário.
-2. A pergunta é convertida para letras minúsculas.
-3. O assistente procura termos relacionados na base de conhecimento.
-4. Caso encontre uma correspondência, retorna a resposta cadastrada.
-5. Caso não encontre, informa que não possui a informação solicitada.
-
----
-
-## Prompt do Assistente
-
-O assistente segue as seguintes instruções:
-
-> Você é o EconoguIA.
->
-> Sua função é auxiliar usuários na compreensão de conceitos econômicos.
->
-> Responda apenas utilizando informações presentes na base de conhecimento.
->
-> Utilize linguagem simples e objetiva.
->
-> Não invente informações.
->
-> Caso não encontre uma resposta adequada, informe:
->
-> "Desculpe, não encontrei essa informação na minha base de conhecimento."
-
----
-
-## Como Executar
-
-### Clonar o Repositório
+**Pré-requisito:** Python 3.10 ou superior
 
 ```bash
-git clone https://github.com/SEU-USUARIO/econoguia.git
-```
-
-### Acessar a Pasta do Projeto
-
-```bash
+# Clone o repositório
+git clone https://github.com/seu-usuario/econoguia.git
 cd econoguia
-```
 
-### Executar o Programa
-
-```bash
+# Execute o projeto
 python src/app.py
 ```
 
 ---
 
-## Exemplos de Uso
+##  Demonstração
 
-### Exemplo 1
-
-Entrada:
-
-```text
-O que é inflação?
 ```
+==================================================
+         📊  EconoguIA — Seu guia de economia
+==================================================
+  Base de conhecimento: 30 conceitos disponíveis
+  Digite 'ajuda' para ver os comandos disponíveis.
+==================================================
 
-Saída:
+💬 Você: o que é inflação?
 
-```text
-Inflação é o aumento generalizado dos preços de bens e serviços.
-```
+📖 EconoguIA:
+   Inflação é o aumento generalizado dos preços de bens e serviços ao
+   longo do tempo, reduzindo o poder de compra da moeda. No Brasil, a
+   inflação é medida principalmente pelo IPCA.
 
----
+💬 Você: quem foi keynes?
 
-### Exemplo 2
-
-Entrada:
-
-```text
-Explique o PIB.
-```
-
-Saída:
-
-```text
-PIB significa Produto Interno Bruto e representa a soma dos bens e serviços produzidos em um país.
+📖 EconoguIA:
+   John Maynard Keynes (1883–1946) foi um economista britânico que defendeu
+   a intervenção do Estado na economia para estimular o crescimento e reduzir
+   o desemprego...
 ```
 
 ---
 
-### Exemplo 3
+##  Testes
 
-Entrada:
+Foram realizados 5 testes cobrindo conceitos cadastrados e perguntas fora da base:
 
-```text
-O que é a taxa Selic?
-```
+| # | Pergunta | Resultado |
+|---|----------|-----------|
+| 1 | O que é inflação? | ✅ Resposta correta |
+| 2 | Explique o PIB | ✅ Resposta correta |
+| 3 | O que é a Taxa Selic? | ✅ Resposta correta |
+| 4 | Quem foi Milton Friedman? | ✅ Informado que não encontrou |
+| 5 | O que é desemprego? | ✅ Resposta correta |
 
-Saída:
-
-```text
-A taxa Selic é a taxa básica de juros da economia brasileira.
-```
-
----
-
-### Exemplo 4
-
-Entrada:
-
-```text
-Quem foi Milton Friedman?
-```
-
-Saída:
-
-```text
-Desculpe, não encontrei essa informação na minha base de conhecimento.
-```
+**Taxa de sucesso: 100% (5/5)**
 
 ---
 
-## Avaliação e Métricas
+##  Tecnologias
 
-Foram realizados testes para verificar o comportamento do assistente diante de perguntas conhecidas e desconhecidas.
-
-| Cenário | Resultado Esperado |
-|----------|------------------|
-| Conceito presente na base | Resposta correta |
-| Conceito ausente na base | Mensagem de não encontrado |
-| Pergunta com texto adicional | Identificação correta do conceito |
-
-### Resultados
-
-- Perguntas avaliadas: 10
-- Respostas corretas: 8
-- Precisão estimada: 80%
+![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat&logo=python&logoColor=white)
+![JSON](https://img.shields.io/badge/JSON-base%20de%20dados-black?style=flat&logo=json)
+![Git](https://img.shields.io/badge/Git-controle%20de%20versão-F05032?style=flat&logo=git&logoColor=white)
 
 ---
 
-## Diferenciais do Projeto
+##  Conceitos na Base de Conhecimento
 
-- Aplicação voltada para educação econômica.
-- Estrutura simples e fácil de compreender.
-- Fácil manutenção e expansão.
-- Possibilidade de integração futura com APIs econômicas.
-- Base para evolução para agentes de IA mais avançados.
+`inflação` · `IPCA` · `IGP-M` · `Selic` · `Copom` · `PIB` · `desemprego` · `PNAD` · `oferta` · `demanda` · `elasticidade` · `concorrência perfeita` · `monopólio` · `oligopólio` · `Adam Smith` · `Keynes` · `Malthus` · `Friedman` · `juros` · `dívida pública` · `Tesouro Direto` · `câmbio` · `balança comercial` · `recessão` · `política fiscal` · `política monetária` · `Banco Central` · `microeconomia` · `macroeconomia` · `custo de oportunidade`
 
 ---
 
-## Melhorias Futuras
+##  Autor
 
-- Inclusão de mais conceitos econômicos.
-- Integração com dados do IBGE.
-- Integração com dados do Banco Central.
-- Consulta de indicadores econômicos em tempo real.
-- Interface web para interação com usuários.
-- Utilização de modelos de linguagem para interpretação avançada das perguntas.
-- Dashboard com indicadores econômicos.
+Desenvolvido como projeto de conclusão do bootcamp de IA da DIO.
+
+> *"A economia está em todo lugar. Entendê-la é uma vantagem."*
 
 ---
 
-## Conclusão
+##  Licença
 
-O EconoguIA demonstra como uma solução simples baseada em Inteligência Artificial e organização de conhecimento pode auxiliar no processo de aprendizagem de economia.
-
-Além de atender aos requisitos do desafio proposto pela DIO, o projeto serve como base para futuras evoluções envolvendo agentes inteligentes, integração com fontes externas de dados e aplicações educacionais mais completas.
-
----
-
-## Autora
-
-Nívea Valentim
-
-Graduanda em Ciências Econômicas
-
-Projeto desenvolvido para o desafio "Construa seu Assistente Virtual com Inteligência Artificial" da Digital Innovation One (DIO).
-
----
-
-## Licença
-
-Este projeto possui finalidade exclusivamente educacional e foi desenvolvido para fins de estudo e aprendizado.
+Este projeto está sob a licença MIT.
